@@ -1,5 +1,5 @@
 from browser_control import *
-from output import play_sound
+from play_output import play_sound
 import webbrowser
 
 urls = {
@@ -11,7 +11,7 @@ urls = {
 }
 
 def main():
-    
+
     play_sound("hello_user")
     play_sound("help_you")
 
