@@ -1,5 +1,5 @@
 from browser_control import *
-#from output import play_sound
+from play_output import play_sound
 import webbrowser
 
 urls = {
@@ -16,9 +16,8 @@ urls = {
 # search Youtube -> cat
 # search for Christmas images -> cat -> christmas cat
 def main():
-    
-    #play_sound("hello_user")
-    #play_sound("help_you")
+    play_sound("hello_user")
+    play_sound("help_you")
 
     # Voice to text should go here
     sentence = 'search for christmas youtube videos'.lower()
@@ -42,14 +41,14 @@ def main():
                                                   is_images=url_key=='images'))
         elif url_key == 'decathlon':
             webbrowser.open(get_decathlon_link(keyword=new_sentence))
-        elif url_key == 'youtube':
+        elif url_key in ['youtube', 'videos']:
             webbrowser.open(get_youtube_link(keyword=new_sentence))
 
     # direct connection
     elif {'go', 'to'}.issubset(set(words)) or 'open' in words:
-        webbrowser.open(ulrs[url_key])
+        webbrowser.open(urls[url_key])
     else:
         print("I don't understand")
-        #play_sound("I_do_not_understand")
+        play_sound("I_do_not_understand")
 
 main()
