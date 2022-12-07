@@ -1,4 +1,5 @@
 from browser_control import *
+from output import play_sound
 import webbrowser
 
 urls = {
@@ -10,6 +11,10 @@ urls = {
 }
 
 def main():
+    
+    play_sound("hello_user")
+    play_sound("help_you")
+
     # Voice to text should go here
     sentence = ''.lower()
 
@@ -30,4 +35,4 @@ def main():
         webbrowser.open(url)
 
     else:
-        print("I don't understand")
+        play_sound("I_do_not_understand")
