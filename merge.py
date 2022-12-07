@@ -18,6 +18,7 @@ urls = {
     'google': 'https://google.com',
     'images': 'https://www.google.com/imghp',
     'youtube': 'https://youtube.com',
+    'videos': 'https://youtube.com',
     'decathlon': 'https://decathlon.ca'
 }
 
@@ -160,7 +161,9 @@ def search(sentence):
         christmas = 'christmas ' if 'christmas' in words else ''
 
         # user should get prompted for new sentence
-        new_sentence = christmas + 'cats'
+        query_terms = sentence.strip('christmas').strip('youtube').\
+            strip('videos').strip('decathlon').strip('google').strip('search')
+        new_sentence = christmas + query_terms
 
         if url_key == 'google':
             search_result = search_through_google(keyword=new_sentence)
