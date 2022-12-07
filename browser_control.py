@@ -1,5 +1,3 @@
-import requests
-import bs4
 
 
 def filter_for_key(words: list, dictionary: dict):
@@ -24,14 +22,6 @@ def search_decathlon(keyword: str):
     url = f'https://www.decathlon.ca/en/search?query={query}'
     return url
 
-def get_first_decathlon_link(search_url: str):
-    request_result = requests.get(search_url)
-    soup = bs4.BeautifulSoup(request_result.text, "html.parser")
-    heading_object = soup.find_all('h3')
-
-    direct_url = ''
-
-    return direct_url
 
 def search_youtube(keyword: str):
     word_list = keyword.split(' ')

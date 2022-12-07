@@ -1,5 +1,5 @@
 from browser_control import *
-from play_output import play
+#from play_output import play
 import webbrowser
 import time
 
@@ -18,8 +18,8 @@ urls = {
 # search for Christmas images -> cat -> christmas cat
 def main():
 
-    play("Hello User, it is Santa Claus !")
-    play("What would you like for Christmas ?")
+    #play("Hello User, it is Santa Claus !")
+    #play("What would you like for Christmas ?")
 
     # Voice to text should go here
     sentence = 'search for christmas youtube videos'.lower()
@@ -51,6 +51,6 @@ def main():
         webbrowser.open(urls[url_key])
     else:
         print("I don't understand")
-        play("I_do_not_understand")
+        #play("I_do_not_understand")
 
 main()
