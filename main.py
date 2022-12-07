@@ -15,7 +15,7 @@ urls = {
 # search for Christmas images -> cat -> christmas cat
 def main():
     # Voice to text should go here
-    sentence = 'search for christmas images'.lower()
+    sentence = 'search for christmas decathlon'.lower()
 
     words = sentence.split(' ')
     url = filter_for_key(words, urls)
