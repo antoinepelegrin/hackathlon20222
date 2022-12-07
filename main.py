@@ -18,7 +18,6 @@ urls = {
 def main():
 
     play("Hello User, it is Santa Claus !")
-    time.sleep(2)
     play("What would you like for Christmas ?")
 
     # Voice to text should go here
