@@ -36,6 +36,7 @@ def main():
                              "consider it a new line in the transcription.", type=float)
     args = parser.parse_args()
 
+
     model = args.model
     if args.model != "large" and not args.non_english:
         model = model + ".en"
@@ -79,6 +80,9 @@ def main():
 
     # Cue the user that we're ready to go.
     print("Model loaded.\n")
+
+    play("Hello User, it is Santa Claus !")
+    play("What would you like for Christmas ?")
 
     while True:
         try:
@@ -145,9 +149,6 @@ def main():
 
 def search(sentence):
 
-    play("hello_user")
-    play("help_you")
-
     # Voice to text should go here
     sentence = sentence #'search for christmas decathlon'.lower()
 
@@ -178,6 +179,7 @@ def search(sentence):
         webbrowser.open(urls[url_key])
     else:
         print("I don't understand")
+        play("I did not understand what you have said.")
 
 
 if __name__ == "__main__":
