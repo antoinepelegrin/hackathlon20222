@@ -174,7 +174,7 @@ def search(sentence):
                                                   is_images=url_key == 'images'))
         elif url_key == 'decathlon':
             webbrowser.open(search_decathlon(keyword=new_sentence))
-        elif url_key in ['youtube', 'videos']:
+        elif url_key in ['youtube', 'videos', 'video']:
             webbrowser.open(search_youtube(keyword=new_sentence))
 
     # direct connection
