@@ -46,6 +46,7 @@ wf.close()
 
 # Load Whisper model for transcribing audio file
 model = whisper.load_model("tiny")
+print("Transcribing audio file...")
 result = model.transcribe("audio.wav")
 print("Output is \n:")
 print(result["text"])
