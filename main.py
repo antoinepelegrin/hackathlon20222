@@ -1,12 +1,14 @@
 from browser_control import *
-from play_output import play_sound
+from play_output import play
 import webbrowser
+import time
 
 urls = {
     'netflix': 'https://netflix.com',
     'google': 'https://google.com',
     'images': 'https://www.google.com/imghp',
     'youtube': 'https://youtube.com',
+    'videos': 'https://youtube.com',
     'decathlon': 'https://decathlon.ca'
 }
 
@@ -16,32 +18,39 @@ urls = {
 # search for Christmas images -> cat -> christmas cat
 def main():
 
-    play_sound("hello_user")
-    play_sound("help_you")
+    play("Hello User, it is Santa Claus !")
+    play("What would you like for Christmas ?")
 
     # Voice to text should go here
-    sentence = 'search for christmas decathlon'.lower()
+    sentence = 'search for christmas youtube videos'.lower()
 
     words = sentence.split(' ')
-    url = filter_for_key(words, urls)
+    url_key = filter_for_key(words, urls)
 
     # search
     if 'search' in words:
-        is_christmas = 'christmas' in words
-        is_images = 'images' in words
+        christmas = 'christmas ' if 'christmas' in words else ''
+
         # user should get prompted for new sentence
-        new_sentence = 'cats'
+        new_sentence = christmas + 'cats'
 
-        url = url if url not in [urls['google'], urls['images']] else None
-
-        search_result = search_through_google(keyword=new_sentence, website=url, is_christmas=is_christmas, is_images=is_images)
-        webbrowser.open(search_result)
+        if url_key == 'google':
+            search_result = search_through_google(keyword=new_sentence)
+            webbrowser.open(search_result)
+        elif url_key in ['netflix', 'images']:
+            webbrowser.open(search_through_google(keyword=new_sentence,
+                                                  website=urls[url_key],
+                                                  is_images=url_key == 'images'))
+        elif url_key == 'decathlon':
+            webbrowser.open(search_decathlon(keyword=new_sentence))
+        elif url_key in ['youtube', 'videos']:
+            webbrowser.open(search_youtube(keyword=new_sentence))
 
     # direct connection
     elif {'go', 'to'}.issubset(set(words)) or 'open' in words:
-        webbrowser.open(url)
+        webbrowser.open(urls[url_key])
     else:
         print("I don't understand")
-        play_sound("I_do_not_understand")
+        play("I_do_not_understand")
 
-main()        
+main()
