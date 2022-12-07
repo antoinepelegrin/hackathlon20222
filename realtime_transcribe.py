@@ -98,7 +98,7 @@ def main():
                     f.write(wav_data.read())
 
                 # Read the transcription.
-                result = audio_model.transcribe(temp_file)
+                result = audio_model.transcribe(temp_file, fp16=False, language='English')
                 text = result['text'].strip()
 
                 # If we detected a pause between recordings, add a new item to our transcripion.
