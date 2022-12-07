@@ -4,30 +4,39 @@ import webbrowser
 urls = {
     'netflix': 'https://netflix.com',
     'google': 'https://google.com',
-    'image': 'https://www.google.com/imghp',
+    'images': 'https://www.google.com/imghp',
     'youtube': 'https://youtube.com',
     'decathlon': 'https://decathlon.ca'
 }
 
+# example inputs:
+# go to decathlon, go to google
+# search Youtube -> cat
+# search for Christmas images -> cat -> christmas cat
 def main():
     # Voice to text should go here
-    sentence = ''.lower()
+    sentence = 'search for christmas images'.lower()
 
     words = sentence.split(' ')
     url = filter_for_key(words, urls)
 
     # search
     if 'search' in words:
-        christmas = 'christmas' in words
+        is_christmas = 'christmas' in words
+        is_images = 'images' in words
         # user should get prompted for new sentence
-        new_sentence = ''
+        new_sentence = 'cats'
 
-        search_result = search_through_google(keyword=new_sentence, website=url, christmas=christmas)
+        url = url if url not in [urls['google'], urls['images']] else None
+
+        search_result = search_through_google(keyword=new_sentence, website=url, is_christmas=is_christmas, is_images=is_images)
         webbrowser.open(search_result)
 
     # direct connection
-    elif {'go', 'to'}.issubset(set(words)):
+    elif {'go', 'to'}.issubset(set(words)) or 'open' in words:
         webbrowser.open(url)
 
     else:
         print("I don't understand")
+
+main()
