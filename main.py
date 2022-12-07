@@ -17,14 +17,9 @@ urls = {
 # search Youtube -> cat
 # search for Christmas images -> cat -> christmas cat
 def main():
-<<<<<<< HEAD
 
     play("Hello User, it is Santa Claus !")
     play("What would you like for Christmas ?")
-=======
-    play_sound("hello_user")
-    play_sound("help_you")
->>>>>>> 3b67ead3b5bdd3321c74b008260771dd9dbdb816
 
     # Voice to text should go here
     sentence = 'search for christmas youtube videos'.lower()
