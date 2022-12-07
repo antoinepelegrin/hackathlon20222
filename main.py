@@ -1,6 +1,7 @@
 from browser_control import *
-from play_output import play_sound
+from play_output import play
 import webbrowser
+import time
 
 urls = {
     'netflix': 'https://netflix.com',
@@ -16,8 +17,9 @@ urls = {
 # search for Christmas images -> cat -> christmas cat
 def main():
 
-    play_sound("hello_user")
-    play_sound("help_you")
+    play("Hello User, it is Santa Claus !")
+    time.sleep(2)
+    play("What would you like for Christmas ?")
 
     # Voice to text should go here
     sentence = 'search for christmas decathlon'.lower()
@@ -42,6 +44,6 @@ def main():
         webbrowser.open(url)
     else:
         print("I don't understand")
-        play_sound("I_do_not_understand")
+        play("I_do_not_understand")
 
 main()        
