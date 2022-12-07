@@ -10,9 +10,9 @@ urls = {
 def filter_for_key(sentence: str):
     words = sentence.split(' ')
     for word in words:
-        if word in urls:
+        if word.lower() in urls:
             return word
-
+    return 'google'
 
 def open_page(key: str):
     try:
