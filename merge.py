@@ -152,26 +152,32 @@ def search(sentence):
     sentence = sentence #'search for christmas decathlon'.lower()
 
     words = sentence.split(' ')
-    url = filter_for_key(words, urls)
+    url_key = filter_for_key(words, urls)
 
     # search
     if 'search' in words:
-        is_christmas = 'christmas' in words
-        is_images = 'images' in words
+        christmas = 'christmas ' if 'christmas' in words else ''
+
         # user should get prompted for new sentence
-        new_sentence = 'cats'
+        new_sentence = christmas + 'cats'
 
-        url = url if url not in [urls['google'], urls['images']] else None
-
-        search_result = search_through_google(keyword=new_sentence, website=url, is_christmas=is_christmas, is_images=is_images)
-        webbrowser.open(search_result)
+        if url_key == 'google':
+            search_result = search_through_google(keyword=new_sentence)
+            webbrowser.open(search_result)
+        elif url_key in ['netflix', 'images']:
+            webbrowser.open(search_through_google(keyword=new_sentence,
+                                                  website=urls[url_key],
+                                                  is_images=url_key == 'images'))
+        elif url_key == 'decathlon':
+            webbrowser.open(search_decathlon(keyword=new_sentence))
+        elif url_key in ['youtube', 'videos']:
+            webbrowser.open(search_youtube(keyword=new_sentence))
 
     # direct connection
     elif {'go', 'to'}.issubset(set(words)) or 'open' in words:
-        webbrowser.open(url)
+        webbrowser.open(urls[url_key])
     else:
         print("I don't understand")
-        play("I_do_not_understand")        
 
 
 if __name__ == "__main__":
