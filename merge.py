@@ -36,6 +36,9 @@ def main():
                              "consider it a new line in the transcription.", type=float)
     args = parser.parse_args()
 
+    play("Hello User, it is Santa Claus !")
+    play("What would you like for Christmas ?")
+    
     model = args.model
     if args.model != "large" and not args.non_english:
         model = model + ".en"
@@ -144,9 +147,6 @@ def main():
         print(line)
 
 def search(sentence):
-
-    play("Hello User, it is Santa Claus !")
-    play("What would you like for Christmas ?")
 
     # Voice to text should go here
     sentence = sentence #'search for christmas decathlon'.lower()
