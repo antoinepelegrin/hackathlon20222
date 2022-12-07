@@ -1,16 +1,14 @@
 import pyaudio
 import wave
-import time
-
-from pydub import AudioSegment
+import pyaudio
+import wave
 
 CHUNK = 1024
 FORMAT = pyaudio.paInt16
 CHANNELS = 2
 RATE = 44100
-RECORD_SECONDS = 5
+RECORD_SECONDS = 3
 WAVE_OUTPUT_FILENAME = "output.wav"
-MP3_OUTPUT_FILENAME = "output.mp3"
 
 p = pyaudio.PyAudio()
 
@@ -40,3 +38,5 @@ wf.setsampwidth(p.get_sample_size(FORMAT))
 wf.setframerate(RATE)
 wf.writeframes(b''.join(frames))
 wf.close()
+
+
