@@ -16,7 +16,7 @@ def search_through_google(keyword: str, website: str = None, is_images: bool = F
     return search_url
 
 
-def get_decathlon_link(keyword: str):
+def search_decathlon(keyword: str):
     word_list = keyword.split(' ')
     query = ''
     for word in word_list:
@@ -24,16 +24,20 @@ def get_decathlon_link(keyword: str):
     url = f'https://www.decathlon.ca/en/search?query={query}'
     return url
 
+def get_first_decathlon_link(search_url: str):
+    request_result = requests.get(search_url)
+    soup = bs4.BeautifulSoup(request_result.text, "html.parser")
+    heading_object = soup.find_all('h3')
 
-def get_youtube_link(keyword: str):
+    direct_url = ''
+
+    return direct_url
+
+def search_youtube(keyword: str):
     word_list = keyword.split(' ')
     query = ''
     for word in word_list:
         query+= word + '+'
     url = f'https://www.youtube.com/results?search_query={query}'
-    #request_result = requests.get(search_url)
-    #soup = bs4.BeautifulSoup(request_result.text, "html.parser")
-    #heading_object = soup.find_all('h3')
 
-    #direct_url = ''
     return url

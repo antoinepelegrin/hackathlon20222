@@ -38,11 +38,11 @@ def main():
         elif url_key in ['netflix', 'images']:
             webbrowser.open(search_through_google(keyword=new_sentence,
                                                   website=urls[url_key],
-                                                  is_images=url_key=='images'))
+                                                  is_images=url_key == 'images'))
         elif url_key == 'decathlon':
-            webbrowser.open(get_decathlon_link(keyword=new_sentence))
+            webbrowser.open(search_decathlon(keyword=new_sentence))
         elif url_key in ['youtube', 'videos']:
-            webbrowser.open(get_youtube_link(keyword=new_sentence))
+            webbrowser.open(search_youtube(keyword=new_sentence))
 
     # direct connection
     elif {'go', 'to'}.issubset(set(words)) or 'open' in words:
