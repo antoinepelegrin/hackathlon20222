@@ -36,9 +36,7 @@ def main():
                              "consider it a new line in the transcription.", type=float)
     args = parser.parse_args()
 
-    play("Hello User, it is Santa Claus !")
-    play("What would you like for Christmas ?")
-    
+
     model = args.model
     if args.model != "large" and not args.non_english:
         model = model + ".en"
@@ -82,6 +80,9 @@ def main():
 
     # Cue the user that we're ready to go.
     print("Model loaded.\n")
+
+    play("Hello User, it is Santa Claus !")
+    play("What would you like for Christmas ?")
 
     while True:
         try:
