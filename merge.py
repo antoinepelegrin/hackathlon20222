@@ -16,7 +16,7 @@ import webbrowser
 urls = {
     'netflix': 'https://netflix.com',
     'google': 'https://google.com',
-    'images': 'https://www.google.com/imghp',
+    'images': 'https://google.com/',
     'youtube': 'https://youtube.com',
     'videos': 'https://youtube.com',
     'video': 'https://youtube.com',
