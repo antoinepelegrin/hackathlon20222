@@ -162,7 +162,7 @@ def search(sentence):
 
         # user should get prompted for new sentence
         query_terms = sentence.strip('christmas').strip('youtube').\
-            strip('videos').strip('decathlon').strip('google').strip('search')
+            strip('videos').strip('decathlon').strip('google').strip('search').strip('images').strip('netflix')
         new_sentence = christmas + query_terms
 
         if url_key == 'google':
