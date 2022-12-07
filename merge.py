@@ -10,7 +10,7 @@ from tempfile import NamedTemporaryFile
 from time import sleep
 
 from browser_control import *
-from play_output import play_sound
+from play_output import play
 import webbrowser
 
 urls = {
@@ -145,8 +145,8 @@ def main():
 
 def search(sentence):
 
-    #play_sound("hello_user")
-    #play_sound("help_you")
+    play("hello_user")
+    play("help_you")
 
     # Voice to text should go here
     sentence = sentence #'search for christmas decathlon'.lower()
@@ -171,7 +171,7 @@ def search(sentence):
         webbrowser.open(url)
     else:
         print("I don't understand")
-        #play_sound("I_do_not_understand")        
+        play("I_do_not_understand")        
 
 
 if __name__ == "__main__":
