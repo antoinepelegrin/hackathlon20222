@@ -1,7 +1,6 @@
 from playsound import playsound
 from gtts import gTTS
 import os
-import time
 
 #greetings
 def play(cmd):
