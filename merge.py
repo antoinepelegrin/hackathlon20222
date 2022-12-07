@@ -145,8 +145,8 @@ def main():
 
 def search(sentence):
 
-    play("hello_user")
-    play("help_you")
+    play("Hello User, it is Santa Claus !")
+    play("What would you like for Christmas ?")
 
     # Voice to text should go here
     sentence = sentence #'search for christmas decathlon'.lower()
@@ -171,7 +171,7 @@ def search(sentence):
         webbrowser.open(url)
     else:
         print("I don't understand")
-        play("I_do_not_understand")        
+        play("I did not understand what you have said.")        
 
 
 if __name__ == "__main__":
