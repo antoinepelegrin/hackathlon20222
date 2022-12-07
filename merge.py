@@ -163,7 +163,7 @@ def search(sentence):
         # user should get prompted for new sentence
         query_terms = sentence.replace('for', '').replace('christmas', '').replace('youtube', '').\
             replace('videos', '').replace('decathlon', '').replace('google', '').\
-            replace('search', '').replace('images', '').replace('netflix', '')
+            replace('search', '').replace('images', '').replace('netflix', '').replace('video', '')
         new_sentence = christmas + query_terms
 
         if url_key == 'google':
