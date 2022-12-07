@@ -22,7 +22,7 @@ def main():
     #play("What would you like for Christmas ?")
 
     # Voice to text should go here
-    sentence = 'search for christmas horses videos'.lower()
+    sentence = 'open netflix'.lower()
 
     words = sentence.split(' ')
     url_key = filter_for_key(words, urls)

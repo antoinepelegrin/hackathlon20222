@@ -151,7 +151,7 @@ def main():
 def search(sentence):
 
     # Voice to text should go here
-    sentence = sentence #'search for christmas decathlon'.lower()
+    sentence = sentence.lower() #'search for christmas decathlon'.lower()
 
     words = sentence.split(' ')
     url_key = filter_for_key(words, urls)
