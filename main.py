@@ -22,7 +22,7 @@ def main():
     #play("What would you like for Christmas ?")
 
     # Voice to text should go here
-    sentence = 'search for christmas videos'.lower()
+    sentence = 'search for christmas horses videos'.lower()
 
     words = sentence.split(' ')
     url_key = filter_for_key(words, urls)
@@ -32,7 +32,10 @@ def main():
         christmas = 'christmas ' if 'christmas' in words else ''
 
         # user should get prompted for new sentence
-        new_sentence = christmas + 'cats'
+        query_terms = sentence.replace('for', '').replace('christmas', '').replace('youtube', '').\
+            replace('videos', '').replace('decathlon', '').replace('google', '').\
+            replace('search', '').replace('images', '').replace('netflix', '')
+        new_sentence = christmas + query_terms
 
         if url_key == 'google':
             search_result = search_through_google(keyword=new_sentence)
@@ -43,7 +46,7 @@ def main():
                                                   is_images=url_key == 'images'))
         elif url_key == 'decathlon':
             webbrowser.open(search_decathlon(keyword=new_sentence))
-        elif url_key in ['youtube', 'videos']:
+        elif url_key in ['youtube', 'videos', 'video']:
             webbrowser.open(search_youtube(keyword=new_sentence))
 
     # direct connection
